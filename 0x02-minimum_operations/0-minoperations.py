@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """minOperations whatever the function do"""
 
 
@@ -6,32 +6,34 @@ def minOperations(n):
     """ Whatever the function does"""
     if n <= 1:
         return 0
-    
+
     def find_divisors(number):
+        """Documentation"""
         divisors = []
         for divisor in range(2, number + 1):
             while number % divisor == 0:
                 divisors.append(divisor)
                 number //= divisor
         return divisors
-    
+
     prime_divisors = find_divisors(n)
     operations = 0
     clipboard = 0
-    
+
     for divisor in prime_divisors:
         if is_prime(divisor):
             clipboard += divisor
         else:
             operations += (clipboard // divisor)  # Copy-Paste
             clipboard %= divisor
-    
+
     operations += clipboard  # Paste
-    
+
     return operations
 
-# Helper function to check if a number is prime
+
 def is_prime(number):
+    """Number is prime"""
     if number <= 1:
         return False
     if number <= 3:
@@ -44,4 +46,3 @@ def is_prime(number):
             return False
         i += 6
     return True
-
