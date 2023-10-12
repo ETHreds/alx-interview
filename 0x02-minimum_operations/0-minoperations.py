@@ -4,7 +4,7 @@
 
 def minOperations(n):
     """ Whatever the function does"""
-    if n <= 1:
+    if not isinstance(n, int) or n <= 1 :
         return 0
 
     def find_divisors(number):
