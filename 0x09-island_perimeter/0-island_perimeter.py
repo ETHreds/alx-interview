@@ -2,14 +2,11 @@
 
 # Calculates perimeter of a grid
 
-grid = []
 
 def island_perimeter(grid):
     perimeter = 0
     rows, cols = len(grid), len(grid[0])
-    assert (1 <= rows <= 100 and 1 <= cols <= 100), "Length must be between 1 and 100"
-    print(rows)
-    print(cols)
+
     for row in range(rows):
         for col in range(cols):
             if grid[row][col] == 1:
