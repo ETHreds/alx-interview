@@ -1,22 +1,26 @@
 #!/usr/bin/python3
-
-# Calculates perimeter of a grid
+"""
+Calculate grid perimeter
+"""
 
 
 def island_perimeter(grid):
+    """Takes grid and loop through rows and columns"""
     perimeter = 0
-    rows, cols = len(grid), len(grid[0])
-
+    rows = len(grid)
+    cols = len(grid[0])
     for row in range(rows):
         for col in range(cols):
             if grid[row][col] == 1:
                 perimeter += 4
-                # cells horizontally adjacent
+                """
+                horizontal adjacent
+                """
                 if col > 0 and grid[row][col - 1] == 1:
                     perimeter -= 2
-                # cells vertically adjacent
+                """
+                vertical adjacent
+                """
                 if row > 0 and grid[row - 1][col] == 1:
                     perimeter -= 2
-
     return perimeter
-
