@@ -1,1 +1,1 @@
-# Solutions to tasks on 0x05. N Queens
+N queens problem with the implementation of back-tracking
