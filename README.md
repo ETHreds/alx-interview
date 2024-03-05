@@ -1,1 +1,1 @@
-Alx interview preparation questions
+# Solutions to various interview type questions
