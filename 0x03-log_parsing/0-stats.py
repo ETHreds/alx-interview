@@ -1,5 +1,4 @@
 #!/bin/python3
-
 """
 script that reads stdin line by line
 """
@@ -7,12 +6,18 @@ import sys
 import re
 from collections import defaultdict
 
+# Define components of the regex for clarity
+ip_pattern = r'(?P<ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
+date_pattern = r'(?P<date>.+?)'
+status_pattern = r'(?P<status>\d{3})'
+size_pattern = r'(?P<size>\d+)'
+
+# Combine the components into a single regex
 log_pattern = re.compile(
-        r'^(?P<ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[(?P<date>.+?)\] "GET /projects/260 HTTP/1.1" (?P<status>\d{3}) (?P<size>\d+)$'
-        )
-total_file_size = 0
-status_codes_count = defaultdict(int)
-line_count = 0
+    rf'^{ip_pattern} - \['
+    rf'{date_pattern}\] "GET /projects/260 HTTP/1.1" '
+    rf'{status_pattern} {size_pattern}$'
+)
 
 # Function to process a single log line
 def process_log_line(line):
